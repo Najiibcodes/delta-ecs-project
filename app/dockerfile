@@ -1,0 +1,31 @@
+# Use an official Node runtime as a parent image
+FROM node:20-alpine
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json or yarn.lock
+COPY yarn.lock ./
+# or for yarn users
+# COPY yarn.lock ./
+
+# Install dependencies
+RUN yarn install
+# or for yarn users
+# RUN yarn install
+
+# Copy the rest of the application
+COPY . .
+
+# Build the application
+RUN yarn build
+# or for yarn users
+# RUN yarn build
+
+# Expose the port that the app runs on
+EXPOSE 3000
+
+# Start the application
+CMD ["yarn", "start"]
+# or for yarn users
+# CMD ["yarn", "start"]
