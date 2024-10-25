@@ -1,6 +1,0 @@
-variable load_balancer_type
-
-variable target_group_settings
-
-variable listener_protocol
-
